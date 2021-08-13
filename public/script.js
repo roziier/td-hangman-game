@@ -46,29 +46,44 @@ let alpha = [
 
 let errors = 11;
 
-// FUNZIONE FILTRO ALFABETO
+// Alphabet filter function
 const filtroAlpha = function (letter) {
-  // rimuovo la lettera selezionata dall'alfabeto
+  // remove selected characters from alphabet
   var beto = alpha.filter((el) => el != letter);
   alpha = [...beto];
   alphaList.innerHTML = "";
-  // stampo le lettere dell'alfabeto disponibili
+  // print alphabet letters
   alpha.forEach((element) => {
     alphaList.innerHTML += "<li>" + element + "</li>";
   });
 };
 
-// STAMPO A SCHERMO
-// stampo alfabeto a schermo
+// WIN-LOSE FUNCTION
+// ALPHABET FILTER
+const winLose = function () {
+  // lose
+  if (errors == 0) {
+    wl.innerHTML = "You lose! 😢😢";
+    wl.classList.remove("hide");
+  }
+  // winner
+  if (randomElement.join("") === letters.join("")) {
+    wl.innerHTML = "Congratulations! You win! 🎉🎉";
+    wl.classList.remove("hide");
+  }
+};
+
+// PRINT
+// print alphabet
 alpha.forEach((element) => {
   alphaList.innerHTML += "<li>" + element + "</li>";
 });
 
-// prendo una parola casuale da myWords e creo un array contenente ogni singola lettera della parola
+// getting a casual word from myWords and creating an array with the word splitted
 var randomIndex = Math.floor(Math.random() * myWords.length);
 var randomElement = myWords[randomIndex].split("");
 
-// creo un array vuoto per stampare esattamente gli spazi vuoti in base alla lunghezza della parola
+// creating an empty array for printing empty spaces based on word length
 let letters = [];
 randomElement.forEach((element) => {
   letters.push("");
@@ -80,61 +95,48 @@ letters.forEach((element) => {
 
 error.innerHTML = errors;
 
-// FUNZIONE CHE VIENE ESEGUITA UNA VOLTA INSERITA UNA LETTERA
+// CHECK FUNCTION
 function check() {
-  console.log("aggiungo");
-  // capitalizzo la lettera
+  // capitalize letter
   let letter = pressEnter.value.toUpperCase();
 
+  if (!alpha.includes(letter)) {
+    return alert("La lettera selezionata non è disponibile!");
+  }
+
   if (randomElement.includes(letter)) {
-    // FILTRO PAROLA
-    // inserisco la lettera nello specifico index
+    // WORD FILTER
+    // fill out the empty array with the letter in the specific index
     randomElement.forEach((element, index) => {
       if (element === letter) {
         letters[index] = element;
       }
     });
     wordToGuess.innerHTML = "";
-    // stampo la/e lettere a schermo
+    // print letters
     letters.forEach((element) => {
       wordToGuess.innerHTML += "<li>" + element + "</li>";
     });
-    // FILTRO ALFABETO
+    // ALPHABET FILTER
     filtroAlpha(letter);
     pressEnter.value = "";
-    // lose
-    if (errors == 0) {
-      wl.innerHTML = "You lose! 😢😢";
-      wl.classList.remove("hide");
-    }
-    // winner
-    if (randomElement.join("") === letters.join("")) {
-      wl.innerHTML = "Congratulations! You win! 🎉🎉";
-      wl.classList.remove("hide");
-    }
+    // win-lose
+    winLose();
   } else if (pressEnter.value.length > 1) {
-    // se non viene inserita una lettera ricevo l'errore
+    // no 1 letter = error
     alert("Valore inserito sbagliato");
     pressEnter.value = "";
   } else if (pressEnter.value == "") {
-    // se non viene inserito nulla
+    // no letter = error
     alert("Valore nullo, inserisci un valore");
     pressEnter.value = "";
   } else {
-    // FILTRO ALFABETO
+    // ALPHABET FILTER
     filtroAlpha(letter);
     pressEnter.value = "";
     error.innerHTML = errors -= 1;
-    // lose
-    if (errors == 0) {
-      wl.innerHTML = "You lose! 😢😢";
-      wl.classList.remove("hide");
-    }
-    // winner
-    if (randomElement.join("") === letters.join("")) {
-      wl.innerHTML = "Congratulations! You win! 🎉🎉";
-      wl.classList.remove("hide");
-    }
+    // win-lose
+    winLose();
   }
 
   // DISEGNO
