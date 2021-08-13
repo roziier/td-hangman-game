@@ -1,0 +1,303 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: rgb(154, 34, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(154, 34, 195, 1) 0%,
+    rgba(253, 116, 45, 1) 100%
+  );
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poller One", cursive;
+  overflow-y: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 8rem;
+  font-family: "Bangers", cursive;
+  animation: zoom-title 0.7s 1s;
+}
+
+h1 span:first-child {
+  animation: from-left 1s;
+}
+
+h1 span:last-child {
+  animation: from-right 1s;
+}
+
+@keyframes from-left {
+  0% {
+    opacity: 0;
+    margin-right: 200px;
+  }
+
+  90% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-right: 0px;
+  }
+}
+
+@keyframes from-right {
+  0% {
+    opacity: 0;
+    margin-left: 200px;
+  }
+
+  90% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+@keyframes zoom-title {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.2);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  position: relative;
+}
+
+.input input {
+  width: 120px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  padding-left: 10px;
+}
+
+.input button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: brown;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+}
+
+.container {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.left {
+  width: 25%;
+}
+
+.left ul {
+  width: 60%;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.left ul li {
+  font-size: 3rem;
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+  font-weight: 700;
+}
+
+.right {
+  width: 70%;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.right ul li {
+  font-size: 4rem;
+  list-style: none;
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 15px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(250, 250, 250, 0.342);
+}
+
+#error {
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  font-size: 4rem;
+}
+
+.winlose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: whitesmoke;
+  z-index: 100;
+}
+
+.face {
+  width: 350px;
+  height: 350px;
+  position: relative;
+}
+
+#e-10 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 150px;
+  height: 5px;
+  background-color: black;
+}
+
+#e-9 {
+  position: absolute;
+  left: 75px;
+  bottom: 0;
+  width: 5px;
+  height: 350px;
+  background-color: black;
+}
+
+#e-8 {
+  position: absolute;
+  left: 75px;
+  top: 0;
+  width: 180px;
+  height: 5px;
+  background-color: black;
+}
+
+#e-7 {
+  position: absolute;
+  left: 255px;
+  top: 0;
+  width: 2px;
+  height: 70px;
+  background-color: black;
+}
+
+#e-6 {
+  position: absolute;
+  left: 225px;
+  top: 55px;
+  font-size: 6rem;
+  z-index: 100;
+}
+
+#e-5 {
+  position: absolute;
+  left: 255px;
+  top: 90px;
+  width: 4px;
+  height: 120px;
+  background-color: black;
+}
+
+#e-4 {
+  position: absolute;
+  left: 280px;
+  top: 115px;
+  width: 4px;
+  height: 60px;
+  transform: rotate(-60deg);
+  background-color: black;
+}
+
+#e-3 {
+  position: absolute;
+  left: 231px;
+  top: 115px;
+  width: 4px;
+  height: 60px;
+  transform: rotate(60deg);
+  background-color: black;
+}
+
+#e-2 {
+  position: absolute;
+  left: 280px;
+  top: 195px;
+  width: 4px;
+  height: 60px;
+  transform: rotate(-60deg);
+  background-color: black;
+}
+
+#e-1 {
+  position: absolute;
+  left: 231px;
+  top: 195px;
+  width: 4px;
+  height: 60px;
+  transform: rotate(60deg);
+  background-color: black;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

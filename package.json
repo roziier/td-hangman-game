@@ -1,0 +1,23 @@
+{
+  "name": "td-hangman-game",
+  "version": "1.0.0",
+  "description": "td-hangman-game",
+  "main": "sum.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roziier/td-hangman-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roziier/td-hangman-game/issues"
+  },
+  "homepage": "https://github.com/roziier/td-hangman-game#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
