@@ -1,5 +1,7 @@
 # HANGMAN GAME
 
+### Netlify : https://infallible-jang-0bb6bd.netlify.app/
+
 ## GAME RULES.
 
 - You must guess the hidden word.
